@@ -1,0 +1,32 @@
+ion-content {
+    --background: none; /* Desactiva el fondo predeterminado de Ionic */
+  }
+  
+  .background-image {
+    background-image: url('/assets/image 2.png'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir el contenedor */
+    background-position: center; /* Centra la imagen */
+    height: 100%; /* Ocupa toda la pantalla */
+    display: flex;
+    justify-content: center; /* Centra verticalmente */
+    align-items: flex-end; /* Alinea los botones al final */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .button-container {
+    width: 100%; /* Botones ocupan todo el ancho disponible */
+    max-width: 300px; /* Limita el ancho de los botones */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre botones */
+  }
+  
+  .custom-button {
+    --background: #f4e663; /* Color amarillo */
+    --color: black; /* Color del texto */
+    --border-radius: 20px; /* Bordes redondeados */
+    font-weight: bold;
+    text-transform: none; /* Mantiene el texto como está */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para dar relieve */
+  }
+  

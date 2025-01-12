@@ -1,0 +1,78 @@
+/* Desactivar el fondo predeterminado de Ionic */
+ion-content {
+    --background: none;
+  }
+  
+  /* Imagen de fondo */
+  .background-image {
+    background-image: url('/assets/image 2.png'); /* Ruta de la imagen */
+    background-size: cover; /* Asegura que la imagen cubra toda el área sin distorsionarse */
+    background-position: center center; /* Centra la imagen */
+    height: 100vh; /* Usa la altura completa de la pantalla (viewport height) */
+    width: 100%; /* Asegura que la imagen cubra todo el ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Fija la imagen de fondo */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Asegura que la imagen quede detrás del contenido del formulario */
+  }
+  
+  /* Contenedor del formulario */
+  .register-container {
+    background-color: white; /* Fondo blanco */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Asegura que el formulario esté por encima de la imagen */
+    margin-top: 60px; /* Asegura un poco de espacio desde la parte superior */
+  }
+  
+  /* Estilo de las pestañas */
+  .tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    flex: 1;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    --ripple-color: transparent; /* Sin efecto ripple */
+  }
+  
+  .tab-button.selected {
+    background-color: #f4e663; /* Amarillo */
+    border-radius: 20px;
+  }
+  
+  /* Contenido del formulario */
+  .form-content h2 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  
+  .custom-input {
+    --background: none;
+    --border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .custom-button {
+    --background: #f4e663; /* Amarillo */
+    --color: black;
+    --border-radius: 20px;
+    font-weight: bold;
+    text-transform: none;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  

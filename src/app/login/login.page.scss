@@ -1,0 +1,77 @@
+ion-content {
+    --background: none; /* Elimina el fondo predeterminado de Ionic */
+  }
+  
+  /* Imagen de fondo */
+  .background-image {
+    background-image: url('/assets/image 2.png'); /* Ruta de la imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100%; /* Ocupa toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Contenedor del formulario */
+  .login-container {
+    background-color: white; /* Fondo blanco */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center;
+  }
+  
+  /* Estilo de las pestañas */
+  .tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    flex: 1;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    --ripple-color: transparent; /* Sin efecto ripple */
+  }
+  
+  .tab-button.selected {
+    background-color: #f4e663; /* Amarillo */
+    border-radius: 20px;
+  }
+  
+  /* Contenido del formulario */
+  .form-content h2 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  
+  .custom-input {
+    --background: none;
+    --border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .custom-button {
+    --background: #f4e663; /* Amarillo */
+    --color: black;
+    --border-radius: 20px;
+    font-weight: bold;
+    text-transform: none;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .forgot-password {
+    color: #6b6b6b;
+    font-size: 14px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  

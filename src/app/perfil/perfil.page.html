@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="editperfil()">
+      <ion-icon slot="end" name="pencil"  ></ion-icon>
+    </ion-buttons>
+    <ion-title>Datos Personales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="profile-container">
+    <!-- Nombre -->
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input [disabled]="editDatos" value="{{profile.user.person?.name}}" #name [(ngModel)]="profile.user.person.name" ></ion-input>
+    </ion-item>
+
+    <!-- Apellido -->
+    <ion-item>
+      <ion-label position="stacked">Apellido</ion-label>
+      <ion-input [disabled]="editDatos" value="{{profile.user.person?.lastname}}" #lastname [(ngModel)]="profile.user.person.lastname"></ion-input>
+    </ion-item>
+
+    <!-- CI -->
+    <ion-item>
+      <ion-label position="stacked">CI</ion-label>
+      <ion-input [disabled]="editDatos" value="{{profile.user.person?.ci}}" #ci [(ngModel)]="profile.user.person.ci" ></ion-input>
+    </ion-item>
+
+    <!-- Dirección -->
+    <ion-item>
+      <ion-label position="stacked">Dirección</ion-label>
+      <ion-input [disabled]="editDatos" value="{{profile.user.person?.address}}" #address [(ngModel)]="profile.user.person.address"></ion-input>
+    </ion-item>
+
+    <!-- Teléfono -->
+    <ion-item>
+      <ion-label position="stacked">Teléfono</ion-label>
+      <ion-input [disabled]="editDatos" value="{{profile.user.person?.phone}}" #phone [(ngModel)]="profile.user.person.phone"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón para cambiar usuario -->
+  <div class="action-buttons">
+    <ion-button expand="block" *ngIf="!editDatos" (click)="updatePerson()">Cambiar Usuario</ion-button>
+  </div>
+</ion-content>
+

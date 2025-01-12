@@ -1,0 +1,35 @@
+<ion-content fullscreen>
+  <!-- Fondo con imagen -->
+  <div class="background-image">
+    <!-- Contenedor del formulario -->
+    <div class="register-container">
+      <!-- Pestañas de Login y Signup -->
+      <div class="tab-buttons">
+        <ion-button class="tab-button" fill="clear" routerLink="/login">LOGIN IN</ion-button>
+        <ion-button class="tab-button selected" fill="clear">LOGIN UP</ion-button>
+      </div>
+
+      <!-- Formulario -->
+      <div class="form-content">
+        <h2>Bienvenidos</h2>
+        <ion-item class="custom-input">
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input #nombre type="text"></ion-input>
+        </ion-item>
+        <ion-item class="custom-input">
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input  #email type="email"></ion-input>
+        </ion-item>
+        <ion-item class="custom-input">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input #password type="password"></ion-input>
+        </ion-item>
+        <ion-item class="custom-input">
+          <ion-label position="floating">TypeUserId</ion-label>
+          <ion-input  #typeUserId type="text"></ion-input>
+        </ion-item>
+        <ion-button  expand="block" (click)="registrar(nombre,email,password,typeUserId)" class="custom-button">Crear Cuenta</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
