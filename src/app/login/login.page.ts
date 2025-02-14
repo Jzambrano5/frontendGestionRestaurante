@@ -11,7 +11,11 @@ import {
   IonIcon,
   IonInput,
   IonItem,
+  
 } from '@ionic/angular/standalone';
+
+import { RouterLink } from '@angular/router';
+
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
@@ -31,12 +35,13 @@ import { UsuarioService } from '../service/usuario.service';
     IonContent,
     CommonModule,
     FormsModule,
+    IonIcon
   ],
 })
 export class LoginPage implements OnInit {
 
   constructor(private usuarioService:UsuarioService,private router:Router,
-    private loadingController:LoadingController, private alertController:AlertController) { }
+    private loadingController:LoadingController, private alertController:AlertController, private alertCtrl: AlertController) { }
 
     ngOnInit() {}
     async login(email:any, password:any) {
@@ -65,5 +70,35 @@ export class LoginPage implements OnInit {
        },
      });
    }
+
+   async showAlert(header: string, message: string) {
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+
+   async loginWithGoogle() {
+    console.log('Iniciando sesión con Google...');
+  
+    try {
+      // Llamar a la función definida en index.html
+      const loginFunction = (window as any).loginWithGoogle;
+      
+      if (typeof loginFunction === 'function') {
+        await loginFunction();
+        console.log('Sesión iniciada con éxito');
+        this.showAlert('Éxito', 'Inicio de sesión exitoso');
+        this.router.navigateByUrl('principal');
+      } else {
+        console.error('La función loginWithGoogle no está definida en window.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      this.showAlert('Error', 'Inicio de sesión fallido');
+    }
+  }
 
 }

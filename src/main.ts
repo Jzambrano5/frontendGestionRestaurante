@@ -5,11 +5,17 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { provideHttpClient } from '@angular/common/http';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { environment } from './environments/environment';
 
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),provideHttpClient(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // Inicializa Firebase
+    provideAuth(() => getAuth()) // Proporciona la autenticación
   ],
 });

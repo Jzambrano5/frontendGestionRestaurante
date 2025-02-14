@@ -2,21 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+    import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+  
+    const firebaseConfig = {
+    apiKey: "AIzaSyCcn2QX1ZxGJ2savhtNRn_zrs7yFuIeNJk",
+    authDomain: "fronted-47617.firebaseapp.com",
+    projectId: "fronted-47617",
+    storageBucket: "fronted-47617.firebasestorage.app",
+    messagingSenderId: "832312152835",
+    appId: "1:832312152835:web:fa0e5b0b49171fcd36cf36"
+  };
 
-  <base href="/" />
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    function isRunningInWebView() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera; //chequea que tipo de disposito es 
+    return /android|iphone|ipad|ipod/i.test(userAgent) && window.matchMedia('(display-mode: standalone)').matches;
+  }
 
-  <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
-
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  window.loginWithGoogle = async function () {
+    try {
+      if (isRunningInWebView()) {
+        console.log("Usando signInWithRedirect() para WebView en Android/iOS");
+        await signInWithRedirect(auth, provider);
+      } else {
+        console.log("Usando signInWithPopup() para navegadores web");
+        const result = await signInWithPopup(auth, provider);
+        console.log("Usuario autenticado:", result.user);
+        // alert("Sesión iniciada con éxito: " + result.user.displayName);
+      }
+    } catch (error) {
+      console.error("Error en la autenticación con Google:", error);
+      // alert("Error al iniciar sesión");
+    }
+  };
+</script>  
 </head>
 
 <body>
